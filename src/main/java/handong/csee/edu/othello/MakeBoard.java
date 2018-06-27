@@ -5,16 +5,17 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
-class MakeBoard{
-
-
+class MakeBoard extends JFrame{
+	ImageIcon zero = new ImageIcon("./0.png");
+	ImageIcon two = new ImageIcon("./2.png");
+	ImageIcon black = new ImageIcon("./blackj.png");
+	ImageIcon white = new ImageIcon("./whitht.png");
 	ImageIcon backicon;	// 배경 이미지 아이콘
 	MakeStone stone = new MakeStone();
 	public static int[][] board;	// 오델로판 배열 선언
 	public JLabel label = new JLabel();	// 오델로판이미지 라벨
 	public static JLayeredPane base;
 	public static int x, y;
-	public int turn = 0;
 	
 	//public ScoreBoard scoreboard;
 	
@@ -24,9 +25,17 @@ class MakeBoard{
 
 	public void Board () {
 		// ** 전체 창을 생성
+		JLabel label1 = new JLabel();
+		JLabel label2 = new JLabel();
+		JLabel label3 = new JLabel();
+		JLabel label4 = new JLabel();
+		JLabel blackJ = new JLabel();
+		JLabel whiteT = new JLabel();
 		JFrame window = new JFrame();
-		window.setTitle("Othello");
-		window.setSize(800,640);  
+		//window.setTitle("Othello");
+		window.setTitle("누가 이 물건좀 치워주세요!!");
+		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+		window.setSize(1099,640);  
 
 		// ** 게임 베이스 생성
 		base = new JLayeredPane();
@@ -41,11 +50,28 @@ class MakeBoard{
 			for(int j=0; j<8; j++)
 				board[i][j] = 2;	
 		}
+		blackJ.setIcon(black);
+		blackJ.setBounds(670,20,80,80);
+		MakeBoard.base.add(blackJ,0);
+		whiteT.setIcon(white);
+		whiteT.setBounds(670,500,80,80);
+		MakeBoard.base.add(whiteT,0);
+		label1.setIcon(zero);
+		label1.setBounds(750,20,80,80);
+		MakeBoard.base.add(label1,0);
+		label2.setIcon(two);
+		label2.setBounds(830,20,80,80);
+		MakeBoard.base.add(label2,0);
+		label3.setIcon(zero);
+		label3.setBounds(750,500,80,80);
+		MakeBoard.base.add(label3,0);
+		label4.setIcon(two);
+		label4.setBounds(830,500,80,80);
+		MakeBoard.base.add(label4,0);
 
-
-		backicon = new ImageIcon("/Users/gimdaegyo/Desktop/GBC/kge.png");	// 오델로판 배경이미지				
+		backicon = new ImageIcon("./kge3.jpg");	// 오델로판 배경이미지		
 		label.setIcon(backicon);
-		label.setBounds(0, 0, 640, 640);
+		label.setBounds(0, 0, 1099, 640);
 		base.add(label);
 
 		stone.draw(3,3,0);

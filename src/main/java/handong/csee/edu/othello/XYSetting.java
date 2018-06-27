@@ -7,12 +7,13 @@ import java.awt.event.MouseMotionListener;
 public class XYSetting implements MouseListener, MouseMotionListener {
 	int x,y;
 	MakeStone stone =new MakeStone();
-	int turn = 0;
+	ShadowStone shadow = new ShadowStone();
+	static public int turn = 0;
+	ScoreBoard score = new ScoreBoard();
+	int count=0;
+	Victory vic=new Victory();
 	@Override
-	public void mouseDragged(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void mouseDragged(MouseEvent e) {}
 
 	@Override
 	public void mouseMoved(MouseEvent e) {
@@ -32,11 +33,12 @@ public class XYSetting implements MouseListener, MouseMotionListener {
 			y=7;
 		else
 			y=(int)y/80;
+		
+		shadow.shadow(x, y, turn);
 	}
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
 		x=e.getX();
 		y=e.getY();
 		if(x<80)
@@ -52,24 +54,40 @@ public class XYSetting implements MouseListener, MouseMotionListener {
 			y=7;
 		else
 			y=(int)y/80;
-		stone.DrawStone(x, y, turn);
-		ChangeTurn();
-	}
-	private void ChangeTurn() {
-		if (turn == 0)
-			turn = 1;
-
-		else if(turn == 1)
-			turn = 0;
-
+		
+		
+		stone.chageStone(x, y, turn);
+		score.countScoreB();
+		
+		if(count==63) {
+			vic.victory();
+		}
 	}
 	
-	public void mousePressed(MouseEvent e) {
+	public int ChangeTurn() {
+		//int count=0;
+		count=0;
+		for(int i=0; i<8;i++) {
+			for(int j=0; j<8; j++) {
+				if(MakeBoard.board[i][j]<2)
+					count++;
+			}
+		}
+		
+		if (count%2 == 0) {
+			turn =0;
+			return turn;
+		}
+
+		else if(count%2 == 1) {
+			turn=1;
+			return turn;
+		}
+		return 2;
 	}
+	public void mousePressed(MouseEvent e) {}
 	public void mouseReleased(MouseEvent e) {}
-	public void mouseEntered(MouseEvent e) {
-	}
-	public void mouseExited(MouseEvent e) {
-	}
+	public void mouseEntered(MouseEvent e) {}
+	public void mouseExited(MouseEvent e) {}
 	
 }
