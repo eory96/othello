@@ -1,6 +1,8 @@
 package handong.csee.edu.othello;
 
 import javax.swing.*;
+
+
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
@@ -10,6 +12,7 @@ class MakeBoard extends JFrame{
 	ImageIcon two = new ImageIcon("./2.png");
 	ImageIcon black = new ImageIcon("./blackj.png");
 	ImageIcon white = new ImageIcon("./whitht.png");
+	ImageIcon forChat = new ImageIcon("./chat.jpg");
 	ImageIcon backicon;	// 배경 이미지 아이콘
 	MakeStone stone = new MakeStone();
 	public static int[][] board;	// 오델로판 배열 선언
@@ -31,7 +34,9 @@ class MakeBoard extends JFrame{
 		JLabel label4 = new JLabel();
 		JLabel blackJ = new JLabel();
 		JLabel whiteT = new JLabel();
+		JLabel chat = new JLabel();
 		JFrame window = new JFrame();
+		
 		//window.setTitle("Othello");
 		window.setTitle("누가 이 물건좀 치워주세요!!");
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
@@ -68,6 +73,9 @@ class MakeBoard extends JFrame{
 		label4.setIcon(two);
 		label4.setBounds(830,500,80,80);
 		MakeBoard.base.add(label4,0);
+		chat.setIcon(forChat);
+		chat.setBounds(650, 110, 350, 380);
+		MakeBoard.base.add(chat, 0);
 
 		backicon = new ImageIcon("./kge3.jpg");	// 오델로판 배경이미지		
 		label.setIcon(backicon);
