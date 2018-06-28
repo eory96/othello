@@ -6,5 +6,5 @@ public class Runner {
 		// TODO Auto-generated method stub
 		MakeBoard board = new MakeBoard();
 		board.Board();
-	}
+	} 
 }

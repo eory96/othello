@@ -10,7 +10,7 @@ public class MakeStone {
 	//XYSetting set = new XYSetting();
 	public void draw(int x, int y, int turn){
 		black = new ImageIcon("./blackj.png");
-		white = new ImageIcon("./whitht.png");
+		white = new ImageIcon("./whitht.png"); 
 
 		if(turn==0) {
 			JLabel label = new JLabel();

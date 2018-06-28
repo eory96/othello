@@ -6,7 +6,7 @@ import javax.swing.JLabel;
 public class ShadowStone {
 	int checkTurn;
 	JLabel label = new JLabel();
-	
+
 	public void shadowStone(int x, int y, int turn) {		
 		ImageIcon blackShadow = new ImageIcon("./blackjsh.png");
 		ImageIcon whiteShadow = new ImageIcon("./whitetsh.png");
@@ -16,13 +16,13 @@ public class ShadowStone {
 			MakeBoard.base.add(label,0);
 		}
 		else if(turn == 1) {
-			
+
 			label.setIcon(whiteShadow);
 			label.setBounds(x*80,y*80,80,80);			
 			MakeBoard.base.add(label,0);
 		}
 	}
-	
+
 	public void shadow(int x, int y, int turn) {
 		if(MakeBoard.board[y][x]<2) {}
 		else if(turn ==0)
@@ -36,7 +36,6 @@ public class ShadowStone {
 					if((MakeStone.indata(x-1,y) == 1 && MakeStone.indata(ix,y)==0) || (MakeStone.indata(x-1,y) == 0 && MakeStone.indata(ix,y)==1))	// 반대속성의 돌이 나오면
 					{
 						shadowStone(ix+(x-ix),y,turn);
-						checkTurn++;
 					}
 				}
 			}
@@ -50,7 +49,6 @@ public class ShadowStone {
 					if((MakeStone.indata(x-1,y-1) == 1 && MakeStone.indata(ix,iy)==0) || (MakeStone.indata(x-1,y-1) == 0 && MakeStone.indata(ix,iy)==1))	// 반대속성의 돌이 나오면
 					{
 						shadowStone(ix+(x-ix),iy+(y-iy),turn);
-						checkTurn++;
 					}
 				}
 			}
@@ -64,7 +62,6 @@ public class ShadowStone {
 					if((MakeStone.indata(x,y-1) == 1 && MakeStone.indata(x,iy)==0) || (MakeStone.indata(x,y-1) == 0 && MakeStone.indata(x,iy)==1))	// 반대속성의 돌이 나오면
 					{
 						shadowStone(x,iy+(y-iy),turn);
-						checkTurn++;
 					}
 				}
 			}
@@ -78,7 +75,6 @@ public class ShadowStone {
 					if((MakeStone.indata(x+1,y-1) == 1 && MakeStone.indata(ix,iy)==0) || (MakeStone.indata(x+1,y-1) == 0 && MakeStone.indata(ix,iy)==1))	// 반대속성의 돌이 나오면
 					{
 						shadowStone(ix+(x-ix),iy+(y-iy),turn);
-						checkTurn++;
 					}
 				}
 			}
@@ -92,7 +88,6 @@ public class ShadowStone {
 					if((MakeStone.indata(x+1,y) == 1 && MakeStone.indata(ix,y)==0) || (MakeStone.indata(x+1,y) == 0 && MakeStone.indata(ix,y)==1))	// 반대속성의 돌이 나오면
 					{
 						shadowStone(ix+(x-ix),y,turn);
-						checkTurn++;
 					}
 				}
 			}
@@ -106,7 +101,6 @@ public class ShadowStone {
 					if((MakeStone.indata(x+1,y+1) == 1 && MakeStone.indata(ix,iy)==0) || (MakeStone.indata(x+1,y+1) == 0 && MakeStone.indata(ix,iy)==1))	// 반대속성의 돌이 나오면
 					{
 						shadowStone(ix+(x-ix),iy+(y-iy),turn);
-						checkTurn++;
 					}
 				}
 			}
@@ -120,7 +114,6 @@ public class ShadowStone {
 					if((MakeStone.indata(x,y+1) == 1 && MakeStone.indata(x,iy)==0) || (MakeStone.indata(x,y+1) == 0 && MakeStone.indata(x,iy)==1))	// 반대속성의 돌이 나오면
 					{
 						shadowStone(x,iy+(y-iy),turn);
-						checkTurn++;
 					}
 				}
 			}
@@ -134,15 +127,11 @@ public class ShadowStone {
 					if((MakeStone.indata(x-1,y+1) == 1 && MakeStone.indata(ix,iy)==0) || (MakeStone.indata(x-1,y+1) == 0 && MakeStone.indata(ix,iy)==1))	// 반대속성의 돌이 나오면
 					{
 						shadowStone(ix+(x-ix),iy+(y-iy),turn);
-						checkTurn++;
 					}
 				}
 			}
-			if(checkTurn==0) {
-				XYSetting.turn=1;
-			}
 		}
-		
+
 		else if(turn ==1)// 흰돌 차례 
 		{
 			if ((MakeStone.indata(x-1,y) == 0))	// 중간 왼쪽 방향

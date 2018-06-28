@@ -10,7 +10,7 @@ public class XYSetting implements MouseListener, MouseMotionListener {
 	ShadowStone shadow = new ShadowStone();
 	static public int turn = 0;
 	ScoreBoard score = new ScoreBoard();
-	int count=0;
+	int count=0; 
 	Victory vic=new Victory();
 	@Override
 	public void mouseDragged(MouseEvent e) {}
@@ -57,9 +57,10 @@ public class XYSetting implements MouseListener, MouseMotionListener {
 		
 		
 		stone.chageStone(x, y, turn);
+		ChangeTurn();
 		score.countScoreB();
 		
-		if(count==63) {
+		if(count==64) {
 			vic.victory();
 		}
 	}
@@ -76,14 +77,12 @@ public class XYSetting implements MouseListener, MouseMotionListener {
 		
 		if (count%2 == 0) {
 			turn =0;
-			return turn;
 		}
 
 		else if(count%2 == 1) {
 			turn=1;
-			return turn;
 		}
-		return 2;
+		return turn;
 	}
 	public void mousePressed(MouseEvent e) {}
 	public void mouseReleased(MouseEvent e) {}
