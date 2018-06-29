@@ -6,8 +6,7 @@ import javax.swing.JLabel;
 public class MakeStone {
 	ImageIcon black;
 	ImageIcon white;
-	//static public int turn = 0;
-	//XYSetting set = new XYSetting();
+	
 	public void draw(int x, int y, int turn){
 		black = new ImageIcon("./blackj.png");
 		white = new ImageIcon("./whitht.png"); 
@@ -339,14 +338,5 @@ public class MakeStone {
 
 		return MakeBoard.board[y][x];
 	}	
-	/*static public void outdata(int x, int y, int turn) {
-		if(x<0 || x>7)
-			return ;
-		if(y<0 || y>7)
-			return ;
-
-		MakeBoard.board[y][x] = turn;
-	}*/
-	
 	
 }

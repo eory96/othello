@@ -19,6 +19,7 @@ class MakeBoard extends JFrame{
 	public JLabel label = new JLabel();	// 오델로판이미지 라벨
 	public static JLayeredPane base;
 	public static int x, y;
+	static ServerBackground client = new ServerBackground();
 	
 	//public ScoreBoard scoreboard;
 	
@@ -34,7 +35,7 @@ class MakeBoard extends JFrame{
 		JLabel label4 = new JLabel();
 		JLabel blackJ = new JLabel();
 		JLabel whiteT = new JLabel();
-		JLabel chat = new JLabel();
+		//JLabel chat = new JLabel();
 		JFrame window = new JFrame();
 		
 		//window.setTitle("Othello");
@@ -73,10 +74,10 @@ class MakeBoard extends JFrame{
 		label4.setIcon(two);
 		label4.setBounds(830,500,80,80);
 		MakeBoard.base.add(label4,0);
-		chat.setIcon(forChat);
+		/*chat.setIcon(forChat);
 		chat.setBounds(650, 110, 350, 380);
-		MakeBoard.base.add(chat, 0);
-
+		MakeBoard.base.add(chat, 0);*/
+		
 		backicon = new ImageIcon("./kge3.jpg");	// 오델로판 배경이미지		
 		label.setIcon(backicon);
 		label.setBounds(0, 0, 1099, 640);
@@ -90,11 +91,18 @@ class MakeBoard extends JFrame{
 		MakeBoard.board[4][4] = 0;
 		MakeBoard.board[3][4] = 1;
 		MakeBoard.board[4][3] = 1;
-		
+		panelCreator();
 		MakeBoard.base.addMouseListener(new XYSetting());	// 클릭 모션을 위한 설정
 		MakeBoard.base.addMouseMotionListener(new XYSetting());	// 무브모션을 위한 설정
 	}
+	
+	public void panelCreator(){
+		Chat chatPanel=new Chat(client);
+        chatPanel.setLayout(null);
+        chatPanel.setLocation(650,110);
 
+        MakeBoard.base.add(chatPanel);
+    }
 }
 /*
 2 그림 안들어간거
