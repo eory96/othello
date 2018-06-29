@@ -6,23 +6,25 @@ import javax.swing.JLabel;
 public class MakeStone {
 	ImageIcon black;
 	ImageIcon white;
+	MakeBoard base;
 	
 	public void draw(int x, int y, int turn){
 		black = new ImageIcon("./blackj.png");
 		white = new ImageIcon("./whitht.png"); 
 
+		base=new MakeBoard();
 		if(turn==0) {
 			JLabel label = new JLabel();
 			label.setIcon(black);	// 생성
 			label.setBounds(x*80,y*80,80,80);
-			MakeBoard.base.add(label,0);
+			base.add(label,0);
 			MakeBoard.board[y][x] = 0;
 		}
 		else if (turn == 1) {
 			JLabel label = new JLabel();
 			label.setIcon(white);
 			label.setBounds(x*80,y*80,80,80);
-			MakeBoard.base.add(label,0);
+			base.add(label,0);
 			MakeBoard.board[y][x]=1;
 		}
 		//ChangeTurn();

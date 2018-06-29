@@ -6,25 +6,26 @@ import javax.swing.JLabel;
 public class ShadowStone {
 	int checkTurn;
 	JLabel label = new JLabel();
-
+	MakeBoard base=new MakeBoard();
+	
 	public void shadowStone(int x, int y, int turn) {		
 		ImageIcon blackShadow = new ImageIcon("./blackjsh.png");
 		ImageIcon whiteShadow = new ImageIcon("./whitetsh.png");
 		if(turn == 0){	
 			label.setIcon(blackShadow);
 			label.setBounds(x*80,y*80,80,80);
-			MakeBoard.base.add(label,0);
+			base.add(label,0);
 		}
 		else if(turn == 1) {
 
 			label.setIcon(whiteShadow);
 			label.setBounds(x*80,y*80,80,80);			
-			MakeBoard.base.add(label,0);
+			base.add(label,0);
 		}
 	}
 
 	public void shadow(int x, int y, int turn) {
-		if(MakeBoard.board[y][x]<2) {}
+		if(base.board[y][x]<2) {}
 		else if(turn ==0)
 		{
 			if ((MakeStone.indata(x-1,y) == 1))	//left

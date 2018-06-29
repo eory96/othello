@@ -1,8 +1,8 @@
 package handong.csee.edu.othello;
 
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 
 public class XYSetting implements MouseListener, MouseMotionListener {
 	int x,y;
@@ -12,6 +12,9 @@ public class XYSetting implements MouseListener, MouseMotionListener {
 	ScoreBoard score = new ScoreBoard();
 	int count=0; 
 	Victory vic=new Victory();
+	
+	public XYSetting() {}
+	
 	@Override
 	public void mouseDragged(MouseEvent e) {}
 

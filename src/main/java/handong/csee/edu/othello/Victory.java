@@ -4,6 +4,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 public class Victory {
+	MakeBoard base=new MakeBoard();
 	public void victory() {
 		int countB=0;
 		int countW=0;
@@ -12,9 +13,9 @@ public class Victory {
 		ImageIcon draw=new ImageIcon("./draw.png");
 		for(int i=0; i<8; i++) {
 			for(int j=0; j<8;j++) {
-				if(MakeBoard.board[i][j]==0)
+				if(base.board[i][j]==0)
 					countB++;
-				else if(MakeBoard.board[i][j]==1)
+				else if(base.board[i][j]==1)
 					countW++;
 			}
 		}
@@ -22,19 +23,19 @@ public class Victory {
 			JLabel label = new JLabel();
 			label.setIcon(winB);
 			label.setBounds(400,20,464,600);
-			MakeBoard.base.add(label,0);
+			base.add(label,0);
 		}
 		else if(countB<countW){
 			JLabel label = new JLabel();
 			label.setIcon(winW);
 			label.setBounds(400,20,452,600);
-			MakeBoard.base.add(label,0);
+			base.add(label,0);
 		}
 		else {
 			JLabel label = new JLabel();
 			label.setIcon(draw);
 			label.setBounds(400,20,452,600);
-			MakeBoard.base.add(label,0);
+			base.add(label,0);
 		}
 	}
 }
