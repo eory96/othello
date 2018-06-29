@@ -22,7 +22,7 @@ public class ServerBackground {
     
     public void setting(){
         try {
-            serverSocket = new ServerSocket(7778);
+            serverSocket = new ServerSocket(7788);
             System.out.println("서버 대기중...");
             socket = serverSocket.accept();
             System.out.println(socket.getInetAddress()+"에서 접속했습니다.");
